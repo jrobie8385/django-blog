@@ -1,0 +1,28 @@
+{% extends "home_files/base.html" %}
+
+{% block content %}
+
+  {% if posts.count == 0 %} <!-- Must have spaces around the == -->
+
+    <h2>You currently do not have any posts.</h2>
+
+  {% else %}
+
+    <h2>You have {{posts.count}} posts</h2>
+
+  {% endif %}
+
+
+  {% for post in posts %}
+
+    <h5>The author is {{post.author}}</h5>
+    <p>{{post.title}}:</p>
+    <p>Click here for text detail: <a href="{% url 'blog:detail' pk=post.pk %}">Text Detail</a></p>
+    <!-- Note that we do not need the "pk=" portion in the href above.
+    We can access the primary key either through ".id" or ".pk"
+    -->
+    <h4>-------</h4>
+
+  {% endfor %}
+
+{% endblock %}
