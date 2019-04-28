@@ -5,8 +5,12 @@ app_name = "blog"
 
 urlpatterns = [
     path("", views.PostListView.as_view(), name = "posts"),
-    path("<pk>/", views.PostDetailView.as_view(), name = "detail")
+    path("<pk>/", views.PostDetailView.as_view(), name = "detail"),
     #Note, the regex above does not even need the "int:" that is shows in the text.
+    path("newPost", views.PostCreateView.as_view(), name = "post_new"),
+    path("update/<pk>/", views.PostEditView.as_view(), name = "update_post"),
+    path("delete/<pk>/", views.DeletePostView.as_view(), name = "delete_post")
+#(?P<pk>\d+)
 ]
 
 """

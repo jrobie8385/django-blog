@@ -8,4 +8,7 @@
     <p>{{post.text}}</p>
   </div>
 
+<a href="{% url 'blog:update_post' pk=post.pk %}">Edit the post</a>
+<a href="{% url 'blog:delete_post' pk=post.pk %}">Delete the post</a>
+
 {% endblock %}

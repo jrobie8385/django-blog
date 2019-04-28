@@ -18,6 +18,7 @@
     <h5>The author is {{post.author}}</h5>
     <p>{{post.title}}:</p>
     <p>Click here for text detail: <a href="{% url 'blog:detail' pk=post.pk %}">Text Detail</a></p>
+    <!-- must go "post.pk" because we are accessing the pk of the particular post item in the list that we click.-->
     <!-- Note that we do not need the "pk=" portion in the href above.
     We can access the primary key either through ".id" or ".pk"
     -->

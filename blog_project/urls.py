@@ -19,6 +19,9 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("accounts/", include("django.contrib.auth.urls")), #to get this path type "http://127.0.0.1:8000/accounts/login/" into the browser.
+    #to access auth in an anchor link, call "login" or "logout" depending on what you are trying to do.
     path("", views.HomePageView.as_view(), name = "home"),
-    path("blog/", include("blog.urls", namespace = "blog"))
+    path("blog/", include("blog.urls", namespace = "blog")),
+    path("accounts/", include("accounts.urls", namespace = "accounts"))
 ]

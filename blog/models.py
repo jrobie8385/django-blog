@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 #  What to include in a blog application:
@@ -25,5 +26,12 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
-    #def get_absolute_url(self):
-    #    return reverse("blog:detail", kwargs = {"authorName": self.author.username, "pk":self.pk})
+    def get_absolute_url(self):
+        return reverse("blog:detail", kwargs={"pk":self.pk})
+
+        """
+        The "get_absolute_url" sets a canonical (officially accepted) URL for an object so even if
+        the structure of your URLs changes in the future, the reference to the specific object
+        is the same. In short, you should add a get_absolute_url() and __str__() method to
+        each model you write.
+        """

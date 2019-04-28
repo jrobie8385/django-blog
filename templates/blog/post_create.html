@@ -1,0 +1,21 @@
+{% extends "home_files/base.html" %}
+
+{% block content %}
+
+<form class="" action="" method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" name="" value="Save">
+</form>
+
+{% endblock %}
+
+<!--
+
+  Use HTML <form> tags with the POST method since we’re sending data.
+  If we were receiving data from a form, for example in a search box, we would use GET.
+  Add a {% csrf_token %} which Django provides to protect our form from crosssite scripting attacks.
+  {{ form.as_p }} renders the attribute within paragraph <p> tags.
+  Specify an input type of submit and assign it the value “Save”.
+
+  -->

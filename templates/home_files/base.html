@@ -7,12 +7,28 @@
 <header>
   <h1>My Django Blog</h1>
 </header>
+
+{% if user.is_authenticated %}
+
 <nav>
+  <h2>Welcom {{ user.username }}</h2>
   <h3><a href="{% url 'home' %}">Return Home</a></h3>
   <h3><a href="{% url 'blog:posts' %}">See the Posts</a></h3>
-  <h3><a href="{% url 'admin:index' %}">Admin Page</a></h3>
+  <h3><a href="{% url 'blog:post_new' %}">Make a new Post</a></h3>
+  <h3><a href="{% url 'admin:index' %}">Admin Page</a></h3> <!-- takes me to the admin home page assuming i'm already logged in, otherwise I will have to log in first -->
+  <h3><a href="{% url 'logout' %}">Logout</a></h3>
 </nav>
 
+{% else %}
+
+<nav>
+  <h2>You are not yet logged in; please do so.</h2>
+  <h3><a href="{% url 'home' %}">Return Home</a></h3>
+  <h3><a href="{% url 'login' %}">Log In</a></h3> <!-- this link gets us to the "registration/login.html" file we created. -->
+  <h3> <a href="{% url 'accounts:signup' %}">Sign Up for an Account</a> </h3>
+</nav>
+
+{% endif %}
 
 {% block content %}
 

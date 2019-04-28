@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    "blog.apps.BlogConfig"
+    "blog.apps.BlogConfig",
+    "accounts.apps.AccountsConfig"
 ]
 
 MIDDLEWARE = [
@@ -120,4 +121,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
-    
+
+LOGIN_REDIRECT_URL = "home" #used by the admin.site.urls to redirect us to the home page after the login.html form is successfully run (post).
+LOGOUT_REDIRECT_URL = "home"
