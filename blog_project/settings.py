@@ -25,7 +25,7 @@ SECRET_KEY = 'ut2$#fn2_wc^c((r^f)^nl0dqggo#%iml+jov8x5mc2w=yc^1f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [*]
 
 
 # Application definition
